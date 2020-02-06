@@ -16,7 +16,8 @@ namespace APP_TestProgrammer.ViewModel
         #region Atributos
         private bool isLoading;
         private double dato;
-        private double Resultado;
+        private double resultado;
+        private double multiplicador;
         private ObservableCollection<Employees> listEmployees;
         private ObservableCollection<Profile> listProfile;
         private ObservableCollection<Position> listPosition;
@@ -46,13 +47,34 @@ namespace APP_TestProgrammer.ViewModel
         public double Datos
         {
             get => this.dato;
-            set => this.SetValue(ref this.dato, value);
+            // set => this.SetValue(ref this.dato, value);
+            set {
+                dato = value;
+                OnPropertyChanged("Datos");
+                operacion();
+            }
+
+            
 
         }
-        public bool IsLoading
+        public double Multiplicador
         {
-            get => this.isLoading;
-            set => this.SetValue(ref this.isLoading, value);
+            get => this.multiplicador;
+            // set => this.SetValue(ref this.dato, value);
+            set
+            {
+                multiplicador = value;
+                OnPropertyChanged("Multiplicador");
+                operacion();
+            }
+
+           
+
+        }
+        public double Resultado
+        {
+            get => this.resultado;
+            set => this.SetValue(ref this.resultado, value);
 
         }
 
@@ -73,23 +95,28 @@ namespace APP_TestProgrammer.ViewModel
 
         #region Method
 
-        public  void LoadList()
+        public void operacion()
         {
-            this.ListEmployees = new ObservableCollection<Employees>();
-           
-            foreach (var item in this.ListEmployees)
-            {
-                var Position = MainViewModel.GetInstance().List_Position
-                    .Where(I => I.positionID == item.positionID).FirstOrDefault();
-                var Profile = MainViewModel.GetInstance().List_Profile
-                    .Where(I => I.profileID == item.profileID).FirstOrDefault();
-                if (Position != null && Profile != null)
-                {
-                    item.Profile = Profile;
-                    item.Position = Position;
-                }
-            }
+            var resultado = Datos * Multiplicador;
+            Resultado = resultado;
         }
+        //public  void LoadList()
+        //{
+        //    this.ListEmployees = new ObservableCollection<Employees>();
+           
+        //    foreach (var item in this.ListEmployees)
+        //    {
+        //        var Position = MainViewModel.GetInstance().List_Position
+        //            .Where(I => I.positionID == item.positionID).FirstOrDefault();
+        //        var Profile = MainViewModel.GetInstance().List_Profile
+        //            .Where(I => I.profileID == item.profileID).FirstOrDefault();
+        //        if (Position != null && Profile != null)
+        //        {
+        //            item.Profile = Profile;
+        //            item.Position = Position;
+        //        }
+        //    }
+        //}
         #region Employees
         public async void LoadEmployees()
         {

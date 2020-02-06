@@ -10,7 +10,10 @@
     <StackLayout BindingContext="{Binding Dashboard}">
         <Label  Text="Split Mount"/>
         <StackLayout>
-            <Entry Text="{Binding Dato, Mode=TwoWay}"/>
+            <Label Text="Ingrese un numero"/>
+            <Entry Text="{Binding Datos, Mode=TwoWay}"/>
+            <Label Text="Digite un numero"/>
+            <Entry Text="{Binding Multiplicador, Mode=TwoWay}"  />
             <Label Text="{Binding Resultado}"/>
 
         </StackLayout>
@@ -38,7 +41,7 @@
                                     HorizontalOptions="Start"/>
                                 <Label Text="{Binding employeeName}"
                                    HorizontalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding Profile.profileName}"
+                            <Label Text="{Binding positionID}"
                                     HorizontalOptions="CenterAndExpand"/>
                                 <Label 
                                     Text="{Binding profileID}"
