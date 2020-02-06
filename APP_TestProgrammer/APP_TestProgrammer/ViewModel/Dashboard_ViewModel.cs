@@ -88,7 +88,7 @@ namespace APP_TestProgrammer.ViewModel
             LoadPosition();
             LoadProfile();
             LoadEmployees();
-            LoadList();
+           // LoadList();
 
         }
         #endregion
@@ -97,7 +97,7 @@ namespace APP_TestProgrammer.ViewModel
 
         public void operacion()
         {
-            var resultado = Datos * Multiplicador;
+            var resultado = Datos / Multiplicador;
             Resultado = resultado;
         }
         //public  void LoadList()

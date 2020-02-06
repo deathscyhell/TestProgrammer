@@ -10,9 +10,9 @@
     <StackLayout BindingContext="{Binding Dashboard}">
         <Label  Text="Split Mount"/>
         <StackLayout>
-            <Label Text="Ingrese un numero"/>
+            <Label Text="Ingrese su monto"/>
             <Entry Text="{Binding Datos, Mode=TwoWay}"/>
-            <Label Text="Digite un numero"/>
+            <Label Text="Digite las transacciones "/>
             <Entry Text="{Binding Multiplicador, Mode=TwoWay}"  />
             <Label Text="{Binding Resultado}"/>
 
