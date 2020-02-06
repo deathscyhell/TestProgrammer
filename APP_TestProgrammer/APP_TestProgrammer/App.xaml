@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+              xmlns:infra="clr-namespace:APP_TestProgrammer.Infrastructure"
+             x:Class="APP_TestProgrammer.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <infra:InstanceLocator x:Key="Locator"/>
+
+            <!--Parameters-->
+            <x:String x:Key="UrlAPI">http://testunit-001-site1.ctempurl.com/</x:String>
+            <x:String x:Key="UrlPrefix">/api</x:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

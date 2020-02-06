@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Class="APP_TestProgrammer.View.Dashboard_Page">
+
+    <StackLayout BindingContext="{Binding Dashboard}">
+        <Label  Text="Split Mount"/>
+        <StackLayout>
+            <Entry Text="{Binding Dato, Mode=TwoWay}"/>
+            <Label Text="{Binding Resultado}"/>
+
+        </StackLayout>
+
+
+            <Label Text=" Employees List"/>
+       
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Id"
+            HorizontalOptions="Start"/>
+            <Label Text="Name"
+              HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Position"
+              HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Profile"
+              HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+
+            <ListView ItemsSource="{Binding ListEmployees}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" >
+                                <Label Text="{Binding employeeID}"
+                                    HorizontalOptions="Start"/>
+                                <Label Text="{Binding employeeName}"
+                                   HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Profile.profileName}"
+                                    HorizontalOptions="CenterAndExpand"/>
+                                <Label 
+                                    Text="{Binding profileID}"
+                                    HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        <!--</Grid>-->
+        
+    </StackLayout>
+</ContentPage>
